@@ -1,8 +1,0 @@
-total 160K
-drwxr-xr-x  2 mbin029 nesi 8.0K Sep 25 08:55 .
-drwxr-xr-x 22 mbin029 nesi 128K Sep 25 08:55 ..
--rw-------  1 mbin029 nesi    0 Sep 25 08:55 stderr.txt
--rw-------  1 mbin029 nesi    0 Sep 25 08:55 stdout.txt
--rw-r--r--  1 mbin029 nesi   22 Sep 25 08:55 testfile1.txt
--rw-r--r--  1 mbin029 nesi   35 Sep 25 08:55 testfile2.txt
--rw-r--r--  1 mbin029 nesi   55 Sep 25 08:55 testfile3.txt
