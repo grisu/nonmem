@@ -45,7 +45,7 @@ job.setSubmissionLocation('pan:pan.nesi.org.nz')
 job.setTimestampJobname(jobname_template)
 job.setCommandline(commandline)
 
-job.add('nonmem_wrap.sh')
+job.addInputFileUrl('nonmem_wrap.sh')
 
 # add input files
 for file in files_to_upload:
@@ -64,6 +64,6 @@ job_directory = job.getJobDirectoryUrl()
 print 'Job finished, jobdirectory: '+job_directory
 
 print 'Downloading results'
-target = filemanager.downloadUrl(job_directory, File(target_dir), False)
+target = filemanager.downloadUrl(job_directory+'/output.zip', File(target_dir), False)
 
 print 'Download finished, download folder: '+target.getPath()
