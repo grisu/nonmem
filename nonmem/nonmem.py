@@ -13,7 +13,7 @@ target_dir = os.getcwd()
 # the name of the job (the submission date will be appended)
 jobname_template = 'nonmem'
 # the commandline to execute
-commandline = 'ls -lah'
+commandline = 'sh nonmem_wrap.sh'
 # walltime in seconds
 walltime = 600 
 # for production we want a longer intervall, otherwise the backend gets too much load
@@ -44,6 +44,8 @@ job = JobObject(si)
 job.setSubmissionLocation('pan:pan.nesi.org.nz')
 job.setTimestampJobname(jobname_template)
 job.setCommandline(commandline)
+
+job.add('nonmem_wrap.sh')
 
 # add input files
 for file in files_to_upload:
