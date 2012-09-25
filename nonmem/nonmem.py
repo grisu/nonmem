@@ -2,7 +2,7 @@ from grisu.Grython import serviceInterface as si
 from grisu.frontend.control.login import LoginManager
 from grisu.frontend.model.job import JobObject
 from grisu.model import GrisuRegistryManager
-from java.io import File, FileInputStream
+from java.io import File
 from javapath import isfile
 import os
 import sys
@@ -21,9 +21,6 @@ walltime = 600
 # for production we want a longer intervall, otherwise the backend gets too much load
 jobstate_check_intervall = 5
 
-def convert_dos_to_unix(txt_file):
-    fis = FileInputStream(txt_file);
-    tempFile = File.createTempFile("input_file", "grisu");
 
 def read_files(files_file):
     # read all files from the text file
