@@ -2,10 +2,10 @@ from grisu.Grython import serviceInterface as si
 from grisu.frontend.control.login import LoginManager
 from grisu.frontend.model.job import JobObject
 from grisu.model import GrisuRegistryManager
-from java.io import File
+from java.io import File, FileInputStream
 from javapath import isfile
-import sys
 import os
+import sys
 
 files_file = sys.argv[1]
 target_dir = os.getcwd()
@@ -14,11 +14,16 @@ target_dir = os.getcwd()
 jobname_template = 'nonmem'
 # the commandline to execute
 commandline = 'sh nonmem_wrap.sh'
+# number of cpus
+cpus = 16
 # walltime in seconds
 walltime = 600 
 # for production we want a longer intervall, otherwise the backend gets too much load
 jobstate_check_intervall = 5
 
+def convert_dos_to_unix(txt_file):
+    fis = FileInputStream(txt_file);
+    tempFile = File.createTempFile("input_file", "grisu");
 
 def read_files(files_file):
     # read all files from the text file
@@ -44,6 +49,7 @@ job = JobObject(si)
 job.setSubmissionLocation('pan:pan.nesi.org.nz')
 job.setTimestampJobname(jobname_template)
 job.setCommandline(commandline)
+job.setCpus(cpus)
 
 job.addInputFileUrl('nonmem_wrap.sh')
 
